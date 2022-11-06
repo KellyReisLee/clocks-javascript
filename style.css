@@ -1,0 +1,337 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+body {
+  /* Centralizing in vertical axis */
+  min-height: 100vh;
+  /* Remove the scoll bar. */
+  overflow: hidden;
+  background-color: rgba(159, 172, 172, 0.359);
+  display: flex;
+  gap: 5rem;
+  flex-direction: column;
+  text-align: center;
+}
+
+.main-container {
+  /* Centralizing everything inside body */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: rgb(10, 84, 122);
+  text-shadow: 2px 5px rgba(165, 176, 176, 0.359);
+  margin-top: 3rem;
+}
+
+.footer {
+  font-size: 0.7rem;
+  margin-top: 0rem;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  border: 14px solid rgb(13, 41, 61, 0.8);
+  /* This is the div parent, has to be relative */
+  position: relative;
+  box-shadow: 5px 10px 20px 1px rgba(147, 142, 142, 0.8);
+}
+
+.clock .number {
+  --rotation: 0;
+  position: absolute;
+  /* to occupy the whole space inside clock container */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  /* To change the position of every number element. */
+  transform: rotate(var(--rotation));
+}
+
+/* Now use the var for rotate to change the position on ecah number element. */
+.clock .number1 {
+  --rotation: 30deg;
+}
+.clock .number2 {
+  --rotation: 60deg;
+}
+.clock .number3 {
+  --rotation: 90deg;
+}
+.clock .number4 {
+  --rotation: 120deg;
+}
+.clock .number5 {
+  --rotation: 150deg;
+}
+.clock .number6 {
+  --rotation: 180deg;
+}
+.clock .number7 {
+  --rotation: 210deg;
+}
+.clock .number8 {
+  --rotation: 240deg;
+}
+.clock .number9 {
+  --rotation: 270deg;
+}
+.clock .number10 {
+  --rotation: 300deg;
+}
+.clock .number11 {
+  --rotation: 330deg;
+}
+
+/* Create the clock hands inside of the clock */
+.clock .hand {
+  /* Positioning indide of the parent element. */
+  --rotation: 0;
+  position: absolute;
+  /* Centralizing inside the parent element */
+  bottom: 50%;
+  left: 50%;
+  width: 10px;
+  height: 50%;
+  /* background-color: black; */
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  /* To rotate using the center  */
+  transform-origin: bottom;
+  /* Border radius */
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 10;
+}
+
+/* Setting up all clock hands */
+.clock .hand.second {
+  width: 3px;
+  height: 45%;
+  background-color: red;
+}
+
+.clock .hand.minute {
+  width: 9px;
+  height: 39%;
+  background-color: black;
+}
+
+.clock .hand.hour {
+  width: 11px;
+  height: 30%;
+  background-color: black;
+}
+
+/*  Creating the center button*/
+.clock::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background-color: #adadad;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+  z-index: 11;
+}
+
+.one {
+  transform: rotate(-34deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.two {
+  transform: rotate(-60deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.three {
+  transform: rotate(-85deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.four {
+  transform: rotate(-120deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.five {
+  transform: rotate(-150deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.six {
+  transform: rotate(-182deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.seven {
+  transform: rotate(-210deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.eight {
+  transform: rotate(-243deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.nine {
+  transform: rotate(-277deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.ten {
+  transform: rotate(60deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.eleven {
+  transform: rotate(30deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.twelve {
+  transform: rotate(0deg);
+  transform-origin: center;
+  margin: 10px;
+}
+
+.digital {
+  background-color: rgba(124, 151, 165, 0.6);
+  width: 700px;
+  height: 400px;
+  position: relative;
+  border-radius: 30px;
+  box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+  font-size: 5rem;
+}
+
+.content {
+  background-color: rgba(64, 78, 87, 0.5);
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-size: 40px;
+  position: absolute;
+  width: 70%;
+  height: 40%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.3);
+  font-family: "Stardos Stencil", cursive;
+  margin-top: 1rem;
+}
+
+#Day {
+  font-size: 1.7rem;
+  font-family: "Stardos Stencil", cursive;
+
+  color: rgb(13, 41, 61, 0.8);
+}
+
+#Clock {
+  font-family: "Stardos Stencil", cursive;
+  letter-spacing: 4px;
+
+  font-size: 2rem;
+}
+/* 
+/* Tables */
+@media only screen and (max-width: 90em) {
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+    width: 700px;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .digital {
+    height: 270px;
+    width: 400px;
+  }
+
+  .clock {
+    width: 400px;
+    height: 400px;
+  }
+  .content {
+    background-color: rgba(64, 78, 87, 0.5);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    width: 80%;
+    height: 35%;
+    top: 50%;
+    left: 50%;
+    margin-top: 0.7rem;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 3px 4px 3px rgba(0, 0, 0, 0.3);
+    font-family: "Stardos Stencil", cursive;
+  }
+
+  #Day {
+    font-size: 1.3rem;
+    font-family: "Stardos Stencil", cursive;
+
+    color: rgb(13, 41, 61, 0.8);
+  }
+
+  #Clock {
+    font-family: "Stardos Stencil", cursive;
+    letter-spacing: 4px;
+    font-size: 1.4rem;
+  }
+}
